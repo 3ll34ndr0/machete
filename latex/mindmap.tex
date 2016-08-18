@@ -1,0 +1,80 @@
+\documentclass[oneside,a4paper]{article}
+\usepackage [spanish] {babel} 
+\usepackage [T1]{fontenc}
+\usepackage [utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{mindmap,trees}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\begin{document}
+
+\section*{Mindmap con Tikz}
+
+Este mindmap lo usé para un apunte de una materia, está bueno como queda.
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\path[
+	mindmap, concept color=white, text=black, 
+	% Distancia y angulos de los hijos
+	level 1/.append style={level distance=3.5cm, sibling angle=36},
+	% Distancia y angulo de los nietos 
+	level 2/.append style={level distance=2.5cm, sibling angle=30}, 
+	% Escala del gráfico completo
+	every node/.append style={scale=0.7}
+	]
+	
+	% Nodo padre
+	node[concept] {\textbf{Procesamiento digital de señales}}
+	% De donde empezar el primer hijo, en grados respecto a la horizontal
+	[clockwise from=0]
+	% Cada hijo sigue el mismo formato
+	child[concept color=blue!30] { 
+		node[concept] {\textbf{Otras}} 
+		[clockwise from=30]
+		child { node[concept] {Redes de datos} }
+		child { node[concept] {Adquisición de datos} }
+		child { node[concept] {Simulaciones} }
+	}
+	child[concept color=blue!30] {
+		node[concept] {\textbf{Medicina}}
+		[clockwise from=-21]
+		child { node[concept] {Diagnóstico por imagen} }
+		child { node[concept] {Señales (ECG, EEG)} }
+	}
+	child[concept color=blue!30] { 
+		node[concept] {\textbf{Telefonía}} 
+		[clockwise from=-42]
+		child { node[concept] {Reducción de ruido} }
+		child { node[concept] {Reducción de eco} }
+		child { node[concept] {Filtrado} }
+	}
+	child[concept color=blue!30] { 
+		node[concept] {\textbf{Aplicaciones militares}} 
+		[clockwise from=-93]
+		child { node[concept] {Radares y sonares} }
+		child { node[concept] {Criptografía} }
+	} 
+	child[concept color=blue!30] { 
+		node[concept] {\textbf{Entreteni\-miento}} 
+		[clockwise from=-106]
+		child { node[concept] {Compresión de Audio} }
+		child { node[concept] {Efectos especiales} }
+		child { node[concept] {\textit{Streaming} de video} }
+	}
+	child[concept color=blue!30] {
+		node[concept] {\textbf{Industria Aeroespacial}}
+		[clockwise from=-150]
+		child { node[concept] {Compresión de datos} }
+		child { node[concept] {Mejoras de imágenes espaciales} }
+		child { node[concept] {Analisis de datos de sensores} }
+	}
+	;
+	\end{tikzpicture}
+	\caption{Algunos campos de aplicación del proceso digital de señales.}
+	\label{fig:aplicaciones-dsp}
+\end{figure}
+
+\end{document}
