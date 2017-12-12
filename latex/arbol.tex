@@ -14,6 +14,7 @@
 \begin{document}
 
 \subsection*{$[A\wedge B]\vee [C \wedge D]$}
+\noindent Ejemplo de un árbol utilizando ubicación relativa entre nodos. 
 \begin{tikzpicture}
   [ grow                    = down,
     sibling distance        = 6em,
@@ -80,40 +81,6 @@
       };
     \end{tikzpicture}
 
-\begin{center}
-    \begin{tikzpicture} [
-    node/.style={rectangle,draw,fill=blue!10,rounded corners=.8ex},
-    res/.style={thick,rectangle,draw,fill=red!20},
-    ]
-   
-    \node [node] (A) {$A$};
-    \path (A) ++(-150:1.5\nodeDist) node [node] (B) {$B$};
-    \path (A) ++(-30:1.5\nodeDist) node [node] (C) {$C$};
-    \path (C) ++(-120:\nodeDist) node [node] (D) {$D$};
-    \path (C) ++(-60:\nodeDist) node [res] (E) {0};
-    \path (B) ++(-120:\nodeDist) node [res] (F) {0};
-    \path (B) ++(-60:\nodeDist) node [node] (G) {$C$};
-    \path (D) ++(-120:\nodeDist) node [res] (H) {0};
-    \path (D) ++(-60:\nodeDist) node [res] (I) {1};
-    \path (G) ++(-120:\nodeDist) node [node] (J) {$D$};
-    \path (G) ++(-60:\nodeDist) node [res] (K) {0};
-    \path (J) ++(-120:\nodeDist) node [res] (L) {0};
-    \path (J) ++(-60:\nodeDist) node [res] (M) {1};
-   
-    \draw[arrow] (A) -- (B) node [left,pos=0.4] {1}(A);
-    \draw[arrow] (A) -- (C) node [right,pos=0.4] {0}(A);
-    \draw[arrow] (C) -- (D) node [left,pos=0.4] {1}(A);
-    \draw[arrow] (C) -- (E) node [right,pos=0.4] {0}(A);
-    \draw[arrow] (B) -- (F) node [left,pos=0.4] {1}(A);
-    \draw[arrow] (B) -- (G) node [right,pos=0.4] {0}(A);
-    \draw[arrow] (D) -- (H) node [left,pos=0.4] {0}(A);
-    \draw[arrow] (D) -- (I) node [right,pos=0.4] {1}(A);
-    \draw[arrow] (G) -- (J) node [left,pos=0.4] {1}(A);
-    \draw[arrow] (G) -- (K) node [right,pos=0.4] {0}(A);
-    \draw[arrow] (J) -- (L) node [left,pos=0.4] {0}(A);
-    \draw[arrow] (J) -- (M) node [right,pos=0.4] {1}(A);
-    \end{tikzpicture}
-\end{center}
 
 \end{document}
 
