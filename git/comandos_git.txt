@@ -14,6 +14,13 @@ git config --global user.email "user@domain.com"
 # Para que cachee la clave por un tiempo, asi no rompe las pelotas tanto
 git config --global credential.helper cache
 
+# Uso de proxy
+git config --global http.proxy http://mydomain\\myusername:mypassword@myproxyserver:8080
+git config --global https.proxy http://mydomain\\myusername:mypassword@myproxyserver:8080
+
+# Para eliminar el proxy
+git config --global --unset http.proxy
+git config --global --unset https.proxy
 
 Pasar de un repo local a un repo github
 ---------------------------------------
